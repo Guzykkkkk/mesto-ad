@@ -13,7 +13,7 @@ import {
     setUserInfo,
     setUserAvatar,
     addNewCard,
-    deletedCard,
+    removeCard,
     changeLikeCardStatus,
 } from "./components/api.js";
 
