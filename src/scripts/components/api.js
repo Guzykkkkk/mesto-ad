@@ -29,11 +29,12 @@ export const updateLikesView = (cardElement, likes, userId) => {
 export const createCardElement = (
     data,
     userId,
-    { onPreviewPicture, onLikeIcon, onDeleteCard }
+    { onPreviewPicture, onLikeIcon, onDeleteCard, onInfoClick }
 ) => {
     const cardElement = getTemplate();
     const likeButton = cardElement.querySelector(".card__like-button");
     const deleteButton = cardElement.querySelector(".card__control-button_type_delete");
+    const infoButton = cardElement.querySelector(".card__control-button_type_info");
     const cardImage = cardElement.querySelector(".card__image");
     const titleElement = cardElement.querySelector(".card__title");
 
@@ -53,6 +54,10 @@ export const createCardElement = (
 
     likeButton.addEventListener("click", () => {
         onLikeIcon(data._id, likeButton, cardElement);
+    });
+
+    infoButton.addEventListener("click", () => {
+        onInfoClick(data._id);
     });
 
     cardImage.addEventListener("click", () => {
