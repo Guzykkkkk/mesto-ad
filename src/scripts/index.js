@@ -1,6 +1,4 @@
 import "./../pages/index.css";
-
-import { createCardElement, deleteCard, isLikedCard, updateLikesView } from "./components/card.js";
 import {
     openModalWindow,
     closeModalWindow,
@@ -16,6 +14,9 @@ import {
     removeCard,
     changeLikeCardStatus,
 } from "./components/api.js";
+import { createCardElement, deleteCard, updateLikesView, hasActiveLike } from "./components/card.js";
+
+
 
 const validationSettings = {
     formSelector: ".popup__form",
@@ -95,7 +96,7 @@ const formatDate = (date) =>
     });
 
 const handleLikeCard = (cardId, likeButton, cardElement) => {
-    const isLiked = likeButton.classList.contains("card__like-button_is-active");
+    const isLiked = hasActiveLike(likeButton);
 
     changeLikeCardStatus(cardId, isLiked)
         .then((updatedCard) => {

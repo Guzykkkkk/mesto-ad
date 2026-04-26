@@ -1,5 +1,12 @@
-import { config } from "./config.js";
+import { cohortId, token, baseApiUrl } from "./config.js";
 
+export const config = {
+    baseUrl: `${baseApiUrl}/${cohortId}`,
+    headers: {
+        authorization: token,
+        "Content-Type": "application/json",
+    },
+};
 const getResponseData = (res) => {
     return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
 };

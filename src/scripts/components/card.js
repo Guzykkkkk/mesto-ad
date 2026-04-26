@@ -12,6 +12,9 @@ export const deleteCard = (cardElement) => {
 export const isLikedCard = (likes, userId) => {
     return likes.some((user) => user._id === userId);
 };
+export const hasActiveLike = (likeButton) => {
+    return likeButton.classList.contains("card__like-button_is-active");
+};
 
 export const updateLikesView = (cardElement, likes, userId) => {
     const likeButton = cardElement.querySelector(".card__like-button");
